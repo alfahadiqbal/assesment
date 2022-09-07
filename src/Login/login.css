@@ -1,0 +1,8 @@
+.login-form {
+  margin: auto
+}
+
+.login-form > input {
+  display: block !important;
+  width: 100%;
+}
