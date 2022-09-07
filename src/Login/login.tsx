@@ -2,8 +2,10 @@ import { Formik } from "formik";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import './login.css';
 import { users as usersData } from '../data/users_data'
 import { User } from "../Interfaces/users";
+import authProvider from "../provider/auth-provider";
 function LoginComponent() {
   const [users] = useState(usersData)
   // const [loggedInUser, setLoggedInUser] = useState('')
@@ -38,12 +40,8 @@ useEffect(() => {
     console.log("values", values)
     const index = users.findIndex((user: User) => user.userName === values.userName && user.password === values.password);
     if (index > -1) {
-      debugger
-      localStorage.setItem("isLoggedIn", "true");
-      setLoggedInUser(values.userName)
-      // localStorage.setItem("loggedInUser", values.userName);
-      // localStorage.setItem("user", JSON.stringify(users[index]));
-      // setLoggedInUser(values.userName);
+      authProvider.login();
+      authProvider.setUserInfo(values.userName);
       navigate("/home");
     } else{
       alert("login failed")
@@ -79,7 +77,7 @@ useEffect(() => {
             value={values.branchId}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={(errors.branchId && touched.branchId && "error") || ''}
+            className={(errors.branchId && touched.branchId && "error input-field") || ''}
           />
           {errors.branchId && touched.branchId && (
             <div className="input-feedback">{errors.branchId}</div>
@@ -108,9 +106,11 @@ useEffect(() => {
           {errors.password && touched.password && (
             <div className="input-feedback">{errors.password}</div>
           )}
+          <div className="button-controls">
           <button type="submit" disabled={isSubmitting}>
             Login
           </button>
+          </div>
         </form>
       </div>
     );

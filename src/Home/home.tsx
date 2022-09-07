@@ -5,6 +5,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import authProvider from '../provider/auth-provider';
 import { User } from '../Interfaces/users';
+import Nav from '../common/nav';
 
 
 function HomeComponent() {
@@ -22,8 +23,7 @@ function HomeComponent() {
 
   return (
     <div>
-      <h1></h1>
-      <button onClick={() => authProvider.logout()}>Logout</button>
+      <Nav />
     <div className="grid-container">
       <div className="addUserForm">
         <Formik

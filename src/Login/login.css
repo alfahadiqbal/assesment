@@ -1,8 +1,19 @@
-.login-form {
-  margin: auto
-}
+
 
 .login-form > input {
-  display: block !important;
-  width: 100%;
+  display: block;
+  margin: 10px 5px 5px 15px;
+  padding: 5px;
+}
+
+.login-form > .button-controls {
+  display: block;
+  margin: 10px 5px 5px 15px;
+  padding: 5px;
+}
+
+.login-form {
+  margin: 0 auto; 
+  width:250px;
+  border: 2px solid black;
 }

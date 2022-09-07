@@ -1,19 +1,15 @@
-import React from 'react';
-import HomeComponent from './Home/home';
 import LoginComponent from './Login/login';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import authProvider from './provider/auth-provider';
-import ProtectedRoute from './common/Protected/protected';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AuthRoute from './auth/auth.route';
 
 function App() {
-  console.log(authProvider.isAuthenticated() ,' k')
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginComponent />} />  
-          <Route path="/home" element={ <HomeComponent />} />
+          <Route path="/*" element={<LoginComponent />} />
+          <Route path="/login" element={<LoginComponent />} />
+          <Route path="/home" element={<AuthRoute />} />
         </Routes>  
       </BrowserRouter>
     </div>
