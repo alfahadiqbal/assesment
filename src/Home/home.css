@@ -29,3 +29,17 @@ table, th, td {
 td {
   padding: 5px;
 }
+
+.facny-button {
+  background-color: aqua;
+  border: 1px solid aqua;
+  border-radius: 5px;
+}
+.button-container {
+  margin: auto;
+  width: 100%;
+}
+/* .button-controls {
+  margin: auto;
+  width: 50px;
+} */

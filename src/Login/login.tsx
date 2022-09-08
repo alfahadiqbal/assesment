@@ -8,10 +8,6 @@ import { User } from "../Interfaces/users";
 import authProvider from "../provider/auth-provider";
 function LoginComponent() {
   const [users] = useState(usersData)
-  // const [loggedInUser, setLoggedInUser] = useState('')
-  // useEffect(() => {
-  //   localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
-  // }, [loggedInUser]);
 
   const [loggedInUser, setLoggedInUser] = useState('');
 
@@ -30,7 +26,7 @@ useEffect(() => {
  return (
   <Formik
   initialValues={{  
-      branchId: 0,
+      branchId: 10001,
       userName: "",
       password: ""
     }
@@ -107,7 +103,7 @@ useEffect(() => {
             <div className="input-feedback">{errors.password}</div>
           )}
           <div className="button-controls">
-          <button type="submit" disabled={isSubmitting}>
+          <button type="submit" disabled={isSubmitting} id="button-controls">
             Login
           </button>
           </div>

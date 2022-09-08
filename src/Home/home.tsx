@@ -1,9 +1,8 @@
 import './home.css';
 import { users as usersData } from '../data/users_data'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Formik } from "formik";
 import * as Yup from "yup";
-import authProvider from '../provider/auth-provider';
 import { User } from '../Interfaces/users';
 import Nav from '../common/nav';
 
@@ -28,7 +27,7 @@ function HomeComponent() {
       <div className="addUserForm">
         <Formik
           initialValues={{  
-            branchId: -1,
+            branchId: 10001,
             userName: "",
             password: "",
             firstName: "",
@@ -163,27 +162,18 @@ function HomeComponent() {
                 {errors.password && touched.password && (
                   <div className="input-feedback">{errors.password}</div>
                 )}
-                <button>
-                  RESET
-                </button>
-                <button type="submit" disabled={isSubmitting}>
-                  ADD
-                </button>
+                <div className = "button-container">
+                  <button>
+                    RESET
+                  </button>
+                  <button type="submit" disabled={isSubmitting} className='facny-button'>
+                    ADD
+                  </button>
+                </div>
               </form>
             );
           }}
         </Formik>
-        {/* <form>
-          <input type="text" placeholder='Branch ID' name="branchId" />
-          <input type="text" placeholder='Username' name="name" />
-          <input type="text" placeholder='First Name' name="name" />
-          <input type="text" placeholder='Mobile Name' name="name" />
-          <input type="text" placeholder='Last Name' name="name" />
-          <input type="text" placeholder='Position' name="name" />
-          <input type="text" placeholder='Password' name="name" />
-          <button type="submit">RESET</button>
-          <button type="submit"> ADD</button>
-        </form> */}
       </div>
       <div className="userTable">
         <table>
